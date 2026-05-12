@@ -245,12 +245,9 @@ class Main extends Sprite
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		
-		#if !mobile
 		fps = new GameStats(10, 3, 0xFFFFFF);
 		// fps.setTextFormat(new TextFormat(Assets.getFont(Paths.font("vcr.ttf")).fontName, 12, 0xFFFFFFFF, false, false, false, null, null, null, null, null, null, null));
 
 		addChild(fps);
-		#end
 	}
 }
