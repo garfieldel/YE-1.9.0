@@ -48,14 +48,14 @@ class Paths
 		#if sourceCode
 			return './../../../../mods';
 		#elseif android
-			return '${System.userDirectory}/YoshiCrafter Engine/mods';
+			return '/storage/emulated/0/YoshiCrafter Engine/mods';
 		#else
 			return './mods';
 		#end
 	}
 	public static function get_savesPath() {
 		#if android
-			return FileSystem.absolutePath('${System.userDirectory}/YoshiCrafter Engine/saves/');
+			return FileSystem.absolutePath('/storage/emulated/0/YoshiCrafter Engine/saves/');
 		#else
 			return FileSystem.absolutePath('./saves/');
 		#end
@@ -207,7 +207,7 @@ class Paths
 	
 	inline static public function getSkinsPath() {
 		#if android
-			return '${System.userDirectory}/YoshiCrafter Engine/skins/';
+			return '/storage/emulated/0/YoshiCrafter Engine/skins/';
 		#else
 			return "./skins/";
 		#end
