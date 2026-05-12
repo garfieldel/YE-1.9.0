@@ -1,6 +1,8 @@
 package dev_toolbox;
 
+#if desktop
 import Discord.DiscordClient;
+#end
 import flixel.util.FlxCollision;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIDropDownMenu.FlxUIDropDownHeader;
