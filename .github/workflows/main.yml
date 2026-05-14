@@ -18,10 +18,10 @@ jobs:
           haxelib install flixel 4.11.0
           haxelib install flixel-ui 2.6.1
           haxelib install flixel-addons 2.11.0
-          haxelib install hscript
+          haxelib install hscript 2.5.0
           haxelib install linc_luajit
           haxelib install hxp 1.2.2
-          haxelib install newgrounds
+          haxelib install newgrounds 1.1.4
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
       - name: configure hxcpp
