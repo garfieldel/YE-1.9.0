@@ -13,9 +13,9 @@ jobs:
       - name: install haxelib dependencies
         run: |
           haxelib install lime
-          haxelib install openfl 9.2.2
+          haxelib install openfl
           haxelib install flixel 4.11.0
-          haxelib install flixel-ui 2.4.0
+          haxelib install flixel-ui 2.6.1
           haxelib install flixel-addons 2.11.0
           haxelib install hscript
           haxelib install linc_luajit
