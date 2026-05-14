@@ -26,8 +26,7 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
       - name: configure hxcpp
         run: |
-          haxelib git hxcpp https://github.com/haxefoundation/hxcpp
-          haxelib run lime rebuild hxcpp
+          haxelib git hxcpp https://github.com/kittycathy233/hxcpp
       - name: configure android
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
