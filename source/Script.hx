@@ -379,6 +379,7 @@ class LuaScript extends Script {
         });
         */
 
+		#if !mobile
         Lua_helper.add_callback(state, "getArray", function(array:String, key:Int, ?globalVar:String):Dynamic {
             if (array == null || array == "") {
                 this.trace("getArray(): You need to type a variable name");
@@ -419,6 +420,7 @@ class LuaScript extends Script {
                 }
             }
         });
+		#end
         Lua_helper.add_callback(state, "v", function(c:String) {return '$' + '{$c}';});
         Lua_helper.add_callback(state, "call", function(v:String, ?resultName:String, ?args:Array<Dynamic>):Dynamic {
             if (args == null) args = [];
