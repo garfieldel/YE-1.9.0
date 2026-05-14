@@ -20,11 +20,14 @@ jobs:
           haxelib install flixel-addons 2.11.0
           haxelib install hscript
           haxelib install linc_luajit
-          haxelib install hxcpp
           haxelib install hxp
           haxelib install newgrounds
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+      - name: configure hxcpp
+        run: |
+          haxelib git hxcpp https://github.com/haxefoundation/hxcpp
+          haxelib run lime rebuild hxcpp
       - name: configure android
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
