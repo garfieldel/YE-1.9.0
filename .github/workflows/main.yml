@@ -10,7 +10,7 @@ jobs:
       - name: setup haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.2.5
+          haxe-version: 4.3.7
       - name: Setup Java JDK
         uses: actions/setup-java@main
         with:
@@ -23,16 +23,16 @@ jobs:
           ndk-version: r21e
       - name: install haxelib dependencies
         run: |
-          haxelib install lime 7.9.0
-          haxelib install openfl 9.1.0
+          haxelib install lime
+          haxelib install openfl
           haxelib install flixel 4.11.0
           haxelib install flixel-ui 2.4.0
           haxelib install flixel-addons 2.11.0
-          haxelib install hscript 2.4.0
-          haxelib install linc_luajit 0.0.7
-          haxelib install hxcpp 4.2.1
-          haxelib install hxp 1.2.1
-          haxelib install newgrounds 1.1.4
+          haxelib install hscript
+          haxelib install linc_luajit
+          haxelib install hxcpp
+          haxelib install hxp
+          haxelib install newgrounds
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
       - name: compile mobile
