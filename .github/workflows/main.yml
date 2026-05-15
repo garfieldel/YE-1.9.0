@@ -16,15 +16,16 @@ jobs:
           haxelib install lime 8.1.2
           haxelib install openfl 9.2.2
           haxelib install flixel 4.11.0
-          haxelib install flixel-ui 2.6.1
+          haxelib install flixel-ui 2.4.0
           haxelib install flixel-addons 2.11.0
-          haxelib install hscript 2.5.0
-          haxelib install linc_luajit
-          haxelib install hxp 1.2.2
+          haxelib install hscript 2.4.0
+          haxelib install linc_luajit 0.0.7
+          haxelib install hxcpp 4.2.1
+          haxelib install hxp 1.2.1
           haxelib install newgrounds 1.1.4
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-      - name: configure hxcpp
+      - name: compile mobile
         run: |
           haxelib git hxcpp https://github.com/kittycathy233/hxcpp
       - name: configure android
