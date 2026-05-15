@@ -20,7 +20,7 @@ jobs:
         uses: nttld/setup-ndk@main
         id: setup-ndk
         with:
-          ndk-version: r15c
+          ndk-version: r21e
       - name: install haxelib dependencies
         run: |
           haxelib install lime 7.9.0
@@ -29,7 +29,7 @@ jobs:
           haxelib install flixel-ui 2.4.0
           haxelib install flixel-addons 2.11.0
           haxelib install hscript 2.4.0
-          haxelib install linc_luajit 0.0.4
+          haxelib install linc_luajit 0.0.7
           haxelib install hxcpp 4.2.1
           haxelib install hxp 1.2.2
           haxelib install newgrounds 1.1.5
