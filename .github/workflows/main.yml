@@ -29,10 +29,10 @@ jobs:
           haxelib install flixel-ui 2.4.0
           haxelib install flixel-addons 2.11.0
           haxelib install hscript 2.4.0
-          haxelib install linc_luajit 0.0.7
+          haxelib install linc_luajit 0.0.4
           haxelib install hxcpp 4.2.1
-          haxelib install hxp 1.2.1
-          haxelib install newgrounds 1.1.4
+          haxelib install hxp 1.2.2
+          haxelib install newgrounds 1.1.5
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
       - name: compile mobile
