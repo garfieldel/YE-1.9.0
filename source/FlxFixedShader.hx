@@ -58,9 +58,9 @@ class FlxFixedShader extends FlxShader {
         #end
 
         #if (js && html5)
-		var prefix = (precisionHint == FULL ? "precision mediump float;\n" : "precision lowp float;\n");
+		prefix = (precisionHint == FULL ? "precision mediump float;\n" : "precision lowp float;\n");
 		#else
-		var prefix = "#ifdef GL_ES\n"
+		prefix = "#ifdef GL_ES\n"
 			+ (precisionHint == FULL ? "#ifdef GL_FRAGMENT_PRECISION_HIGH\n"
 			    + "precision highp float;\n"
 				+ "#else\n"
