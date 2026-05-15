@@ -14,7 +14,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install lime 8.1.2
-          haxelib install openfl 9.2.2
+          haxelib install openfl 9.1.0
           haxelib install flixel 4.11.0
           haxelib install flixel-ui 2.4.0
           haxelib install flixel-addons 2.11.0
