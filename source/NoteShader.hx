@@ -1,7 +1,7 @@
 import EngineSettings.Settings;
 import flixel.system.FlxAssets.FlxShader;
 
-class ColoredNoteShader extends FlxFixedShader {
+class ColoredNoteShader extends FlxShader {
     @:glFragmentSource('#pragma header
 
         uniform float r;
@@ -20,16 +20,16 @@ class ColoredNoteShader extends FlxFixedShader {
             if (enabled) {
                 if (blurEnabled) {
                     // real stuff
-                    float r = 0;
-                    float g = 0;
-                    float b = 0;
-                    float a = 0;
-                    float t = 0;
+                    float r = 0.0;
+                    float g = 0.0;
+                    float b = 0.0;
+                    float a = 0.0;
+                    float t = 0.0;
             
                     float realX = x / openfl_TextureSize.x;
                     float realY = y / openfl_TextureSize.y;
                     for (int i = -passes; i < passes; ++i) {
-                        vec4 color = flixel_texture2D(bitmap, vec2(openfl_TextureCoordv.x + (i * realX / passes), openfl_TextureCoordv.y + (i * realY / passes)));
+                        vec4 color = flixel_texture2D(bitmap, vec2(openfl_TextureCoordv.x + (float(i) * realX / float(passes)), openfl_TextureCoordv.y + (float(i) * realY / float(passes))));
                         r += color.r;
                         g += color.g;
                         b += color.b;
@@ -46,16 +46,16 @@ class ColoredNoteShader extends FlxFixedShader {
             } else {
                 if (blurEnabled) {
                     // real stuff
-                    float r = 0;
-                    float g = 0;
-                    float b = 0;
-                    float a = 0;
-                    float t = 0;
+                    float r = 0.0;
+                    float g = 0.0;
+                    float b = 0.0;
+                    float a = 0.0;
+                    float t = 0.0;
             
                     float realX = x / openfl_TextureSize.x;
                     float realY = y / openfl_TextureSize.y;
                     for (int i = -passes; i < passes; ++i) {
-                        vec4 color = flixel_texture2D(bitmap, vec2(openfl_TextureCoordv.x + (i * realX / passes), openfl_TextureCoordv.y + (i * realY / passes)));
+                        vec4 color = flixel_texture2D(bitmap, vec2(openfl_TextureCoordv.x + (float(i) * realX / float(passes)), openfl_TextureCoordv.y + (float(i) * realY / float(passes))));
                         r += color.r;
                         g += color.g;
                         b += color.b;
