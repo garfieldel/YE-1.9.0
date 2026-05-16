@@ -1971,9 +1971,8 @@ class PlayState extends MusicBeatState
 				{
 					DiscordClient.changePresence(detailsText, '$songMod - ${CoolUtil.prettySong(song.song)} ($storyDifficultyText)', iconRPC);
 				}
+				#end
 			}
-				
-			#end
 		}
 
 		super.closeSubState();
