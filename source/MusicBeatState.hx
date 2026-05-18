@@ -19,13 +19,12 @@ import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.FlxCamera;
 import openfl.utils.Assets;
-
-typedef FlxSpriteTypedGroup = FlxTypedGroup<FlxSprite>;
-typedef FlxSpriteArray = Array<FlxSprite>;
-
 #if mobile
 import mobile.flixel.*;
 #end
+
+typedef FlxSpriteTypedGroup = FlxTypedGroup<FlxSprite>;
+typedef FlxSpriteArray = Array<FlxSprite>;
 
 class MusicBeatState extends FlxUIState
 {
