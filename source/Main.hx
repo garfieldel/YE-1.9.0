@@ -249,5 +249,9 @@ class Main extends Sprite
 		// fps.setTextFormat(new TextFormat(Assets.getFont(Paths.font("vcr.ttf")).fontName, 12, 0xFFFFFFFF, false, false, false, null, null, null, null, null, null, null));
 
 		addChild(fps);
+
+		#if mobile
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
 	}
 }
