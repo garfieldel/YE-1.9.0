@@ -1159,7 +1159,7 @@ class PlayState extends MusicBeatState
 		// doof.cameras = [camHUD];
 
 		#if mobile
-		addHitbox(3)
+		addHitbox(3);
 		#end
 
 		// if (SONG.song == 'South')
