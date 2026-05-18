@@ -1158,6 +1158,10 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		// doof.cameras = [camHUD];
 
+		#if mobile
+		addHitbox(3)
+		#end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -3358,24 +3362,12 @@ class PlayState extends MusicBeatState
 		};
 		
 		if (!engineSettings.botplay) {
-			#if mobile
-			justPressedArray = [for (i in 0...SONG.keyNumber) false];
-			justReleasedArray = [for (i in 0...SONG.keyNumber) false];
-			pressedArray = [for (i in 0...SONG.keyNumber) false];
-			for (t in FlxG.touches.list) {
-				var id = Math.floor(t.getScreenPosition().x / FlxG.width * SONG.keyNumber);
-				justPressedArray[id] = t.justPressed;
-				justReleasedArray[id] = t.justReleased;
-				pressedArray[id] = t.pressed;
-			}
-			#else
 			for (i in 0...SONG.keyNumber) {
 				var key:FlxKey = cast(Reflect.field(engineSettings, 'control_' + kNum + '_$i'), FlxKey);
-				pressedArray.push(FlxControls.anyPressed([key])); // Should prob fix this
-				justPressedArray.push(FlxControls.anyJustPressed([key])); // Should prob fix this
-				justReleasedArray.push(FlxControls.anyJustReleased([key])); // Should prob fix this
+				pressedArray.push(FlxControls.anyPressed([key]) #if mobile || _hitbox.array[i].pressed #end); // Should prob fix this
+				justPressedArray.push(FlxControls.anyJustPressed([key]) #if mobile || _hitbox.array[i].justPressed #end); // Should prob fix this
+				justReleasedArray.push(FlxControls.anyJustReleased([key]) #if mobile || _hitbox.array[i].justReleased #end); // Should prob fix this
 			}
-			#end
 		} else {
 			// BOTPLAY CODE
 			justPressedArray = [for (i in 0...SONG.keyNumber) false];
