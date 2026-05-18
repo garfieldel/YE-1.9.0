@@ -17,11 +17,15 @@ import flixel.FlxG;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
+import flixel.FlxCamera;
 import openfl.utils.Assets;
 
 typedef FlxSpriteTypedGroup = FlxTypedGroup<FlxSprite>;
 typedef FlxSpriteArray = Array<FlxSprite>;
 
+#if mobile
+import mobile.flixel.*;
+#end
 
 class MusicBeatState extends FlxUIState
 {
@@ -33,6 +37,21 @@ class MusicBeatState extends FlxUIState
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
 	private var controls(get, never):Controls;
+
+	#if mobile
+	var _hitbox:FlxHitbox;
+
+	public function addHitbox(?keyCount:Int = 3) {
+		_hitbox = new FlxHitbox(keyCount);
+
+		var camMobile = new FlxCamera();
+	    camMobile.bgColor.alpha = 0;
+		FlxG.cameras.add(camMobile, false);
+
+		_hitbox.cameras = [camMobile];
+ 		add(_hitbox);
+	}
+	#end
 
 	public static var defaultIcon:Image = null;
 
