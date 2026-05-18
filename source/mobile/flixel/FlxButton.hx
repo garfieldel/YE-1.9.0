@@ -17,6 +17,7 @@ import flixel.FlxCamera;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.util.FlxDestroyUtil;
+import mobile.flixel.input.FlxMobileInputID;
 
 class FlxButton extends FlxTypedButton<FlxText>
 {
