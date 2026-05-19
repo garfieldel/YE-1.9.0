@@ -149,6 +149,10 @@ class Main extends Sprite
 	{
 		super();
 
+		#if mobile
+        System.requestPermissions(["android.permission.READ_EXTERNAL_STORAGE"]);
+        #end
+
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, function(e:UncaughtErrorEvent) {
 			var m:String = e.error;
 			if (Std.isOfType(e.error, Error)) {
