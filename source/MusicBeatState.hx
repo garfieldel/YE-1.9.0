@@ -20,7 +20,8 @@ import flixel.math.FlxRect;
 import flixel.FlxCamera;
 import openfl.utils.Assets;
 #if mobile
-import mobile.flixel.*;
+import mobile.flixel.FlxVirtualPad;
+import mobile.flixel.FlxHitbox;
 #end
 
 typedef FlxSpriteTypedGroup = FlxTypedGroup<FlxSprite>;
