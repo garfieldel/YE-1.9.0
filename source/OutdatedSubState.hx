@@ -22,6 +22,7 @@ class OutdatedSubState extends MusicBeatState
 	}
 	override function create()
 	{
+		super.create();
 		var bg:FlxSprite = new FlxSprite();
 		bg.loadGraphic(Paths.image('menuBGYoshiCrafter', 'preload'));
 		bg.scale.set(1.2, 1.2);
@@ -67,10 +68,8 @@ class OutdatedSubState extends MusicBeatState
 		add(changelog);
 
 		#if mobile
-        addButtons(A);
+        addButton(A);
         #end
-
-		super.create();
 	}
 
 	override function update(elapsed:Float)
