@@ -22,7 +22,6 @@ class OutdatedSubState extends MusicBeatState
 	}
 	override function create()
 	{
-		super.create();
 		var bg:FlxSprite = new FlxSprite();
 		bg.loadGraphic(Paths.image('menuBGYoshiCrafter', 'preload'));
 		bg.scale.set(1.2, 1.2);
@@ -66,6 +65,12 @@ class OutdatedSubState extends MusicBeatState
 		var changelog = new FlxText(100, txt.y + txt.height + 20, 1080, changelog, 16);
 		changelog.setFormat(Paths.font("vcr.ttf"), Std.int(16), FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(changelog);
+
+		#if mobile
+        addButtons(A);
+        #end
+
+		super.create();
 	}
 
 	override function update(elapsed:Float)
@@ -78,11 +83,11 @@ class OutdatedSubState extends MusicBeatState
 				FlxG.openURL('https://www.github.com/YoshiCrafter29/YoshiCrafterEngine/releases/latest');
 			#end
 		}
-		if (FlxG.keys.justPressed.SPACE)
+		if (FlxG.keys.justPressed.SPACE #if mobile || _virtualpad.buttonA.justPressed #end)
 		{
 			FlxG.openURL('https://www.github.com/YoshiCrafter29/YoshiCrafterEngine/releases/latest');
 		}
-		if (controls.BACK)
+		if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end)
 		{
 			leftState = true;
 			FlxG.switchState(new MainMenuState());
