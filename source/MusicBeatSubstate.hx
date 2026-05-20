@@ -6,7 +6,8 @@ import flixel.FlxG;
 import flixel.FlxSubState;
 import flixel.FlxCamera;
 #if mobile
-import mobile.flixel.*;
+import mobile.flixel.FlxVirtualPad;
+import mobile.flixel.FlxHitbox;
 #end
 
 class MusicBeatSubstate extends FlxSubState
