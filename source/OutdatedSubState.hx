@@ -82,7 +82,7 @@ class OutdatedSubState extends MusicBeatState
 				FlxG.openURL('https://www.github.com/YoshiCrafter29/YoshiCrafterEngine/releases/latest');
 			#end
 		}
-		if (FlxG.keys.justPressed.SPACE #if mobile || _virtualpad.buttonA.justPressed #end)
+		if (FlxG.keys.justPressed.SPACE #if mobile || _button.buttonA.justPressed #end)
 		{
 			FlxG.openURL('https://www.github.com/YoshiCrafter29/YoshiCrafterEngine/releases/latest');
 		}
