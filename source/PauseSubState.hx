@@ -127,6 +127,11 @@ class PauseSubState extends MusicBeatSubstate
 		cameras = [cam];
 		script.executeFunc("postCreate");
 		script.executeFunc("createPost");
+
+		#if mobile
+		addButton(A);
+		addDPad(UP_DOWN);
+		#end
 	}
 
 	override function update(elapsed:Float)
@@ -143,9 +148,9 @@ class PauseSubState extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		var upP = controls.UP_P;
-		var downP = controls.DOWN_P;
-		var accepted = controls.ACCEPT;
+		var upP = controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end;
+		var downP = controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end;
+		var accepted = controls.ACCEPT #if mobile || _button.buttonA.justPressed #end;
 
 		if (upP)
 		{
