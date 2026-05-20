@@ -39,16 +39,41 @@ class MusicBeatState extends FlxUIState
 
 	#if mobile
 	var _hitbox:FlxHitbox;
+	var _button:FlxVirtualPad;
+	var _dpad:FlxVirtualPad;
+	var _cam:FlxCamera;
 
 	public function addHitbox(?keyCount:Int = 3) {
 		_hitbox = new FlxHitbox(keyCount);
 
-		var camMobile = new FlxCamera();
-	    camMobile.bgColor.alpha = 0;
-		FlxG.cameras.add(camMobile, false);
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
 
-		_hitbox.cameras = [camMobile];
+		_hitbox.cameras = [_cam];
  		add(_hitbox);
+	}
+
+	public function addButtons(?action:FlxActionMode) {
+		_button = new FlxVirtualPad(action);
+
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
+
+		_button.cameras = [_cam];
+		add(_button);
+	}
+
+	public function addDPad(?dpad:FlxDPadMode) {
+		_dpad = new FlxVirtualPad(dpad);
+
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
+
+		_dpad.cameras = [_cam];
+		add(_dpad);
 	}
 	#end
 
