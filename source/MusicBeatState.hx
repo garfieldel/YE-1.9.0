@@ -54,7 +54,7 @@ class MusicBeatState extends FlxUIState
  		add(_hitbox);
 	}
 
-	public function addButtons(?action:FlxActionMode) {
+	public function addButton(?action:FlxActionMode) {
 		_button = new FlxVirtualPad(action);
 
 		_cam = new FlxCamera();
