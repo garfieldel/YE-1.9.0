@@ -4,6 +4,10 @@ import dev_toolbox.ToolboxMessage;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.FlxSubState;
+import flixel.FlxCamera;
+#if mobile
+import mobile.flixel.*;
+#end
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -18,6 +22,34 @@ class MusicBeatSubstate extends FlxSubState
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
 	private var controls(get, never):Controls;
+
+	#if mobile
+	var _button:FlxVirtualPad;
+	var _dpad:FlxVirtualPad;
+	var _cam:FlxCamera;
+
+	public function addButton(?action:FlxActionMode) {
+		_button = new FlxVirtualPad(action);
+
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
+
+		_button.cameras = [_cam];
+		add(_button);
+	}
+
+	public function addDPad(?dpad:FlxDPadMode) {
+		_dpad = new FlxVirtualPad(dpad);
+
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
+
+		_dpad.cameras = [_cam];
+		add(_dpad);
+	}
+	#end
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
