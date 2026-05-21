@@ -54,6 +54,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonRight = new FlxButton(0, 0);
 		buttonDown = new FlxButton(0, 0);
 
+		if (DPad != null) {
 		switch (DPad) {
 			case UP_DOWN:
 				dPad.add(add(buttonUp = createButton(0, FlxG.height - 255, 132, 127, "up", 0x00FF00)));
@@ -70,8 +71,10 @@ class FlxVirtualPad extends FlxSpriteGroup {
 				dPad.add(add(buttonLeft = createButton(0, FlxG.height - 243, 132, 127, "left", 0xFF00FF)));
 				dPad.add(add(buttonRight = createButton(207, FlxG.height - 243, 132, 127, "right", 0xFF0000)));
 				dPad.add(add(buttonDown = createButton(105, FlxG.height - 135, 132, 127, "down", 0x00FFFF)));
+		    }
 		}
 
+		if (Action != null) {
 		switch (Action) {
 			case A:
 				dPad.add(add(buttonA = createButton(FlxG.width - 132, FlxG.height - 135, 132, 127, "a", 0xFF0000)));
@@ -129,7 +132,8 @@ class FlxVirtualPad extends FlxSpriteGroup {
 				dPad.add(add(buttonB = createButton(FlxG.width - 258, FlxG.height - 135, 132, 127, "b", 0xFFCB00)));
 				dPad.add(add(buttonZ = createButton(FlxG.width - 132, FlxG.height - 255, 132, 127, "z", 0xCCB98E)));
 				dPad.add(add(buttonA = createButton(FlxG.width - 132, FlxG.height - 135, 132, 127, "a", 0xFF0000)));
-		}
+		    }
+	    }
 	}
 
 	public function createButton(x:Float, y:Float, width:Int, height:Int, frames:String, Color:Int = 0xFFFFFF):FlxButton {
