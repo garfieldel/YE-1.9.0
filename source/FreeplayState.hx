@@ -342,6 +342,9 @@ class FreeplayState extends MusicBeatState
 			add(closeButton);
 		#end
 
+		#if mobile
+		addButton(D_X);
+		#end
 		super.create();
 		freeplayScript.executeFunc("createPost", []);
 		freeplayScript.executeFunc("postCreate", []);
@@ -485,7 +488,7 @@ class FreeplayState extends MusicBeatState
 			}
 			if (FlxControls.justPressed.F5) FlxG.resetState();
 		}
-		if (FlxControls.justPressed.TAB) openSubState(new SwitchModSubstate());
+		if (FlxControls.justPressed.TAB #if mobile || _dpad.buttonD.justPressed #end) openSubState(new SwitchModSubstate());
 
 		shiftCooldown += elapsed;
 		for (i in iconArray) {
@@ -570,7 +573,7 @@ class FreeplayState extends MusicBeatState
 		{
 			select();
 		}
-		if (FlxControls.justPressed.SPACE) {
+		if (FlxControls.justPressed.SPACE #if mobile || _button.buttonX.justPressed #end) {
 			if (selectedSongInstPath == currentInstPath) {
 				select();
 			} else {
