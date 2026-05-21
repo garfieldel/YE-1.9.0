@@ -28,6 +28,11 @@ class SwitchModSubstate extends MusicBeatSubstate {
             add(m);
 
             i++;
+
+            #if mobile
+            addButton(A);
+            addDPad(UP_DOWN);
+            #end
         }
     }
 
@@ -39,9 +44,9 @@ class SwitchModSubstate extends MusicBeatSubstate {
             m.alpha = FlxMath.lerp(m.alpha, ((k == selected) ? 1 : 0.4), CoolUtil.wrapFloat(0.16 * 60 * elapsed, 0, 1));
             
         }
-        if (controls.UP_P) changeSelection(-1);
-        if (controls.DOWN_P) changeSelection(1);
-        if (controls.ACCEPT) {
+        if (controls.UP_P #if mobile || _dpad.buttonDown.justPressed #end) changeSelection(-1);
+        if (controls.DOWN_P #if mobile || _dpad.buttonUp.justPressed #end) changeSelection(1);
+        if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end) {
             if (Std.isOfType(FlxG.state, TitleState)) TitleState.initialized = false;
             if (FlxG.sound.music != null) {
                 FlxG.sound.music.fadeOut(0.25, 0);
@@ -53,7 +58,7 @@ class SwitchModSubstate extends MusicBeatSubstate {
             FlxG.resetState();
             return;
         }
-        if (controls.BACK) {
+        if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
             CoolUtil.playMenuSFX(2);
             close();
         }
