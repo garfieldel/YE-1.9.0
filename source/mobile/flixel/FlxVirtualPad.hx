@@ -30,24 +30,11 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	public var dPad:FlxSpriteGroup;
 	public var actions:FlxSpriteGroup;
 	
-	public function new(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+	public function new(?DPad:FlxDPadMode) {
 		super();
 
 		dPad = new FlxSpriteGroup();
 		dPad.scrollFactor.set();
-		
-		actions = new FlxSpriteGroup();
-		actions.scrollFactor.set();
-
-		buttonA = new FlxButton(0, 0);
-		buttonB = new FlxButton(0, 0);
-		buttonC = new FlxButton(0, 0);
-		buttonD = new FlxButton(0, 0);
-		buttonE = new FlxButton(0, 0);
-		buttonV = new FlxButton(0, 0);
-		buttonX = new FlxButton(0, 0);
-		buttonY = new FlxButton(0, 0);
-		buttonZ = new FlxButton(0, 0);
 
 		buttonLeft = new FlxButton(0, 0);
 		buttonUp = new FlxButton(0, 0);
@@ -71,6 +58,23 @@ class FlxVirtualPad extends FlxSpriteGroup {
 				dPad.add(add(buttonRight = createButton(207, FlxG.height - 243, 132, 127, "right", 0xFF0000)));
 				dPad.add(add(buttonDown = createButton(105, FlxG.height - 135, 132, 127, "down", 0x00FFFF)));
 		}
+	}
+
+	public function new(?Action:FlxActionMode) {
+		super();
+		
+		actions = new FlxSpriteGroup();
+		actions.scrollFactor.set();
+
+		buttonA = new FlxButton(0, 0);
+		buttonB = new FlxButton(0, 0);
+		buttonC = new FlxButton(0, 0);
+		buttonD = new FlxButton(0, 0);
+		buttonE = new FlxButton(0, 0);
+		buttonV = new FlxButton(0, 0);
+		buttonX = new FlxButton(0, 0);
+		buttonY = new FlxButton(0, 0);
+		buttonZ = new FlxButton(0, 0);
 
 		switch (Action) {
 			case A:
