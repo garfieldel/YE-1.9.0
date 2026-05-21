@@ -56,7 +56,7 @@ class MusicBeatState extends FlxUIState
 	}
 
 	public function addButton(?action:FlxActionMode) {
-		_button = new FlxVirtualPad(action);
+		_button = new FlxVirtualPad(null, action);
 
 		_cam = new FlxCamera();
 	    _cam.bgColor.alpha = 0;
@@ -67,7 +67,7 @@ class MusicBeatState extends FlxUIState
 	}
 
 	public function addDPad(?dpad:FlxDPadMode) {
-		_dpad = new FlxVirtualPad(dpad);
+		_dpad = new FlxVirtualPad(dpad, null);
 
 		_cam = new FlxCamera();
 	    _cam.bgColor.alpha = 0;
