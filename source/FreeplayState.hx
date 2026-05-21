@@ -488,7 +488,7 @@ class FreeplayState extends MusicBeatState
 			}
 			if (FlxControls.justPressed.F5) FlxG.resetState();
 		}
-		if (FlxControls.justPressed.TAB #if mobile || _dpad.buttonD.justPressed #end) openSubState(new SwitchModSubstate());
+		if (FlxControls.justPressed.TAB #if mobile || _dpad.buttonD.justPressed #end) removeButton(); openSubState(new SwitchModSubstate());
 
 		shiftCooldown += elapsed;
 		for (i in iconArray) {
