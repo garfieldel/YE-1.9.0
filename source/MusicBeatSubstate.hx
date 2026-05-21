@@ -50,6 +50,14 @@ class MusicBeatSubstate extends FlxSubState
 		_dpad.cameras = [_cam];
 		add(_dpad);
 	}
+
+	public function removeButton() {
+		remove(_button);
+	}
+
+	public function remobeDPad() {
+		remove(_dpad);
+	}
 	#end
 
 	inline function get_controls():Controls
