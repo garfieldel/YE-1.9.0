@@ -55,7 +55,7 @@ class MusicBeatSubstate extends FlxSubState
 		remove(_button);
 	}
 
-	public function remobeDPad() {
+	public function removeDPad() {
 		remove(_dpad);
 	}
 	#end
