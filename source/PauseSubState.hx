@@ -180,9 +180,13 @@ class PauseSubState extends MusicBeatSubstate
 						// 	FlxTween.tween(PlayState.current.camHUD, {zoom : oldZoom}, 0.2, {ease : FlxEase.smoothStepInOut});
 						// };
 						openSubState(s);
+						removeDPad();
+						removeButton();
 					case "Logs":
 						var s = new LogSubState();
 						openSubState(s);
+						removeDPad();
+						removeButton();
 					case "Edit Player":
 						var split = PlayState.SONG.player1.split(":");
 						dev_toolbox.character_editor.CharacterEditor.fromFreeplay = true;
