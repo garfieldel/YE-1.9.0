@@ -76,6 +76,14 @@ class MusicBeatState extends FlxUIState
 		_dpad.cameras = [_cam];
 		add(_dpad);
 	}
+
+	public function removeButton() {
+		remove(_button);
+	}
+
+	public function remobeDPad() {
+		remove(_dpad);
+	}
 	#end
 
 	public static var defaultIcon:Image = null;
