@@ -30,8 +30,8 @@ class SwitchModSubstate extends MusicBeatSubstate {
             i++;
 
             #if mobile
-            addButton(A);
-            addDPad(UP_DOWN);
+            subAddButton(A);
+            subAddDPad(UP_DOWN);
             #end
         }
     }
@@ -44,9 +44,9 @@ class SwitchModSubstate extends MusicBeatSubstate {
             m.alpha = FlxMath.lerp(m.alpha, ((k == selected) ? 1 : 0.4), CoolUtil.wrapFloat(0.16 * 60 * elapsed, 0, 1));
             
         }
-        if (controls.UP_P #if mobile || _dpad.buttonDown.justPressed #end) changeSelection(-1);
-        if (controls.DOWN_P #if mobile || _dpad.buttonUp.justPressed #end) changeSelection(1);
-        if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end) {
+        if (controls.UP_P #if mobile || _sub_dpad.buttonDown.justPressed #end) changeSelection(-1);
+        if (controls.DOWN_P #if mobile || _sub_dpad.buttonUp.justPressed #end) changeSelection(1);
+        if (controls.ACCEPT #if mobile || _sub_button.buttonA.justPressed #end) {
             if (Std.isOfType(FlxG.state, TitleState)) TitleState.initialized = false;
             if (FlxG.sound.music != null) {
                 FlxG.sound.music.fadeOut(0.25, 0);
@@ -54,12 +54,16 @@ class SwitchModSubstate extends MusicBeatSubstate {
             }
             CoolUtil.playMenuSFX(1);
             Settings.engineSettings.data.selectedMod = mods[selected].modDataName;
+            subRemoveButton();
+            subRemoveDPad();
             close();
             FlxG.resetState();
             return;
         }
         if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
             CoolUtil.playMenuSFX(2);
+            subRemoveButton();
+            subRemoveDPad();
             close();
         }
     }
