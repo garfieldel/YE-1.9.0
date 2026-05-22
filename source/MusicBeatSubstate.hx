@@ -30,7 +30,7 @@ class MusicBeatSubstate extends FlxSubState
 	var _cam:FlxCamera;
 
 	public function addButton(?action:FlxActionMode) {
-		_button = new FlxVirtualPad(action);
+		_button = new FlxVirtualPad(null, action);
 
 		_cam = new FlxCamera();
 	    _cam.bgColor.alpha = 0;
@@ -41,7 +41,7 @@ class MusicBeatSubstate extends FlxSubState
 	}
 
 	public function addDPad(?dpad:FlxDPadMode) {
-		_dpad = new FlxVirtualPad(dpad);
+		_dpad = new FlxVirtualPad(dpad, null);
 
 		_cam = new FlxCamera();
 	    _cam.bgColor.alpha = 0;
