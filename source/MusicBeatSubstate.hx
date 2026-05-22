@@ -25,38 +25,38 @@ class MusicBeatSubstate extends FlxSubState
 	private var controls(get, never):Controls;
 
 	#if mobile
-	var _button:FlxVirtualPad;
-	var _dpad:FlxVirtualPad;
-	var _cam:FlxCamera;
+	var _sub_button:FlxVirtualPad;
+	var _sub_dpad:FlxVirtualPad;
+	var _sub_cam:FlxCamera;
 
-	public function addButton(?action:FlxActionMode) {
-		_button = new FlxVirtualPad(null, action);
+	public function subAddButton(?action:FlxActionMode) {
+		_sub_button = new FlxVirtualPad(null, action);
 
-		_cam = new FlxCamera();
-	    _cam.bgColor.alpha = 0;
-		FlxG.cameras.add(_cam, false);
+		_sub_cam = new FlxCamera();
+	    _sub_cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_sub_cam, false);
 
-		_button.cameras = [_cam];
-		add(_button);
+		_sub_button.cameras = [_sub_cam];
+		add(_sub_button);
 	}
 
-	public function addDPad(?dpad:FlxDPadMode) {
-		_dpad = new FlxVirtualPad(dpad, null);
+	public function subAddDPad(?dpad:FlxDPadMode) {
+		_sub_dpad = new FlxVirtualPad(dpad, null);
 
-		_cam = new FlxCamera();
-	    _cam.bgColor.alpha = 0;
-		FlxG.cameras.add(_cam, false);
+		_sub_cam = new FlxCamera();
+	    _sub_cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_sub_cam, false);
 
-		_dpad.cameras = [_cam];
-		add(_dpad);
+		_sub_dpad.cameras = [_sub_cam];
+		add(_sub_dpad);
 	}
 
-	public function removeButton() {
-		remove(_button);
+	public function subRemoveButton() {
+		remove(_sub_button);
 	}
 
-	public function removeDPad() {
-		remove(_dpad);
+	public function subRemoveDPad() {
+		remove(_sub_dpad);
 	}
 	#end
 
