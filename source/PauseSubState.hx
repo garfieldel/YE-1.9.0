@@ -129,8 +129,8 @@ class PauseSubState extends MusicBeatSubstate
 		script.executeFunc("createPost");
 
 		#if mobile
-		addButton(A);
-		addDPad(UP_DOWN);
+		subAddButton(A);
+		subAddDPad(UP_DOWN);
 		#end
 	}
 
@@ -148,9 +148,9 @@ class PauseSubState extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		var upP = controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end;
-		var downP = controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end;
-		var accepted = controls.ACCEPT #if mobile || _button.buttonA.justPressed #end;
+		var upP = controls.UP_P #if mobile || _sub_dpad.buttonUp.justPressed #end;
+		var downP = controls.DOWN_P #if mobile || _sub_dpad.buttonDown.justPressed #end;
+		var accepted = controls.ACCEPT #if mobile || _sub_button.buttonA.justPressed #end;
 
 		if (upP)
 		{
@@ -180,13 +180,13 @@ class PauseSubState extends MusicBeatSubstate
 						// 	FlxTween.tween(PlayState.current.camHUD, {zoom : oldZoom}, 0.2, {ease : FlxEase.smoothStepInOut});
 						// };
 						openSubState(s);
-						removeDPad();
-						removeButton();
+						subRemoveDPad();
+						subRemoveButton();
 					case "Logs":
 						var s = new LogSubState();
 						openSubState(s);
-						removeDPad();
-						removeButton();
+						subRemoveDPad();
+						subRemoveButton();
 					case "Edit Player":
 						var split = PlayState.SONG.player1.split(":");
 						dev_toolbox.character_editor.CharacterEditor.fromFreeplay = true;
