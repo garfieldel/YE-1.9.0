@@ -345,6 +345,7 @@ class FreeplayState extends MusicBeatState
 		#if mobile
 		addButton(D_X);
 		#end
+
 		super.create();
 		freeplayScript.executeFunc("createPost", []);
 		freeplayScript.executeFunc("postCreate", []);
@@ -566,7 +567,9 @@ class FreeplayState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.switchState(new MainMenuState());
-			
+			#if mobile
+			addButton(D_X);
+			#end
 		}
 
 		if (FlxControls.justPressed.ENTER || (FlxControls.justPressed.SPACE && Settings.engineSettings.data.autoplayInFreeplay && selectedSongInstPath == currentInstPath) || cursorAccept)
