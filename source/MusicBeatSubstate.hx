@@ -36,7 +36,6 @@ class MusicBeatSubstate extends FlxSubState
 		FlxG.cameras.add(_sub_cam, false);
 
 		_sub_button.cameras = [_sub_cam];
-		_sub_button.alpha = 0.7;
 		add(_sub_button);
 	}
 
