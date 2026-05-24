@@ -28,12 +28,11 @@ class SwitchModSubstate extends MusicBeatSubstate {
             add(m);
 
             i++;
-
-            #if mobile
-            subAddButton(A);
-            subAddDPad(UP_DOWN);
-            #end
         }
+        #if mobile
+        subAddButton(A);
+        subAddDPad(UP_DOWN);
+        #end
     }
 
     public override function update(elapsed) {
@@ -44,8 +43,8 @@ class SwitchModSubstate extends MusicBeatSubstate {
             m.alpha = FlxMath.lerp(m.alpha, ((k == selected) ? 1 : 0.4), CoolUtil.wrapFloat(0.16 * 60 * elapsed, 0, 1));
             
         }
-        if (controls.UP_P #if mobile || _sub_dpad.buttonDown.justPressed #end) changeSelection(-1);
-        if (controls.DOWN_P #if mobile || _sub_dpad.buttonUp.justPressed #end) changeSelection(1);
+        if (controls.UP_P #if mobile || _sub_dpad.buttonUp.justPressed #end) changeSelection(-1);
+        if (controls.DOWN_P #if mobile || _sub_dpad.buttonDown.justPressed #end) changeSelection(1);
         if (controls.ACCEPT #if mobile || _sub_button.buttonA.justPressed #end) {
             if (Std.isOfType(FlxG.state, TitleState)) TitleState.initialized = false;
             if (FlxG.sound.music != null) {
