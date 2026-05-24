@@ -119,7 +119,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end)
+		if (controls.ACCEPT #if mobile || _sub_button.buttonA.justPressed #end)
 		{
 			endBullshit();
 		}
