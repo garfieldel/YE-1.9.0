@@ -54,16 +54,12 @@ class SwitchModSubstate extends MusicBeatSubstate {
             }
             CoolUtil.playMenuSFX(1);
             Settings.engineSettings.data.selectedMod = mods[selected].modDataName;
-            subRemoveButton();
-            subRemoveDPad();
             close();
             FlxG.resetState();
             return;
         }
         if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
             CoolUtil.playMenuSFX(2);
-            subRemoveButton();
-            subRemoveDPad();
             close();
         }
     }
