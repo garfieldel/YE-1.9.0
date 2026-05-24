@@ -107,6 +107,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (path != null) 
 			script.loadFile(path);
 		script.executeFunc("create");
+
+        #if mobile
+		subAddButton(A);
+		#end
 	}
 
 	override function update(elapsed:Float)
@@ -115,12 +119,12 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		if (controls.ACCEPT)
+		if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end)
 		{
 			endBullshit();
 		}
 
-		if (controls.BACK)
+		if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end)
 		{
 			if (FlxG.sound.music != null) FlxG.sound.music.stop();
 
