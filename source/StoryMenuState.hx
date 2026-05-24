@@ -448,6 +448,11 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 
+		#if mobile
+		addDPad(FULL);
+		addButton(D_A);
+		#end
+
 		super.create();
 		menuScript.executeFunc("createPost");
 	}
@@ -461,7 +466,7 @@ class StoryMenuState extends MusicBeatState
 			openSubState(new LogSubState());
 		}
 		if (FlxControls.justPressed.F5) FlxG.resetState();
-		if (FlxControls.justPressed.TAB) {
+		if (FlxControls.justPressed.TAB #if mobile || _button.buttonD.justPressed #end) {
 			persistentUpdate = false;
 			openSubState(new SwitchModSubstate());
 		}
@@ -488,39 +493,39 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
-				if (controls.UP_P)
+				if (controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end)
 				{
 					changeWeek(-1);
 				}
 
-				if (controls.DOWN_P)
+				if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end)
 				{
 					changeWeek(1);
 				}
 
-				if (controls.RIGHT)
+				if (controls.RIGHT #if mobile || _dpad.buttonRight.pressed #end)
 					rightArrow.animation.play('press')
 				else
 					rightArrow.animation.play('idle');
 
-				if (controls.LEFT)
+				if (controls.LEFT #if mobile || _dpad.buttonLeft.pressed #end)
 					leftArrow.animation.play('press');
 				else
 					leftArrow.animation.play('idle');
 
-				if (controls.RIGHT_P)
+				if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end)
 					changeDifficulty(1);
-				if (controls.LEFT_P)
+				if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end)
 					changeDifficulty(-1);
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end)
 			{
 				selectWeek();
 			}
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek)
+		if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end && !movedBack && !selectedWeek)
 		{
 			CoolUtil.playMenuSFX(2);
 			movedBack = true;
