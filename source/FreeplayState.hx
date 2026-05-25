@@ -351,6 +351,13 @@ class FreeplayState extends MusicBeatState
 		freeplayScript.executeFunc("postCreate", []);
 	}
 
+	override function closeSubState()
+	{
+		changeSelection(0, false);
+		persistentUpdate = true;
+		super.closeSubState();
+		addButton(D_X);
+	}
 	// public function addSong(songName:String, modName:String, songCharacter:String)
 	// {
 	// 	songs.push(new SongMetadata(songName, modName, songCharacter));
