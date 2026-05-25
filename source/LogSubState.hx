@@ -77,15 +77,20 @@ class LogSubState extends MusicBeatSubstate {
         scrollSprite.scrollFactor.set();
         clearButton.scrollFactor.set();
         saveButton.scrollFactor.set();
+
+		#if mobile
+		subAddDPad(UP_DOWN);
+		#end
+
         super.create();
     }
 
     public override function update(elapsed) {
         super.update(elapsed);
-        var up = controls.UP;
-		var down = controls.DOWN;
-		var back = (controls.ACCEPT || controls.BACK) && !released;
-        if (released) released = controls.ACCEPT || controls.BACK;
+        var up = controls.UP #if mobile || _sub_dpad.buttonUp.justPressed #end;
+		var down = controls.DOWN #if mobile || _sub_dpad.buttonDown.justPressed #end;
+		var back = (controls.ACCEPT || controls.BACK) #if mobile || FlxG.android.justReleased.BACK #end && !released;
+        if (released) released = controls.ACCEPT || controls.BACK #if mobile || FlxG.android.justReleased.BACK #end;
         
         var maxDist = Math.max(0, text.height - size.y);
         if (up) {
