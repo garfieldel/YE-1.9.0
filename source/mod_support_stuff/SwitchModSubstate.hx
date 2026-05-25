@@ -59,7 +59,12 @@ class SwitchModSubstate extends MusicBeatSubstate {
         }
         if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
             CoolUtil.playMenuSFX(2);
+            #if mobile
+			flixel.addons.transition.FlxTransitionableState.skipNextTransOut = true;
+			FlxG.resetState();
+			#else
             close();
+            #end
         }
     }
 
