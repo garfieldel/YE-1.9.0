@@ -353,7 +353,6 @@ class FreeplayState extends MusicBeatState
 
 	override function closeSubState()
 	{
-		changeSelection(0, false);
 		persistentUpdate = true;
 		super.closeSubState();
 		addButton(D_X);
