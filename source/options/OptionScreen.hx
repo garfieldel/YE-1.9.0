@@ -49,8 +49,8 @@ class OptionScreen extends MusicBeatSubstate {
         add(optionsPanel);
 
         #if mobile
-        addButton(A);
-        addDPad(UP_DOWN);
+        subAddButton(A);
+        subAddDPad(UP_DOWN);
         #end
     }
 
@@ -80,9 +80,9 @@ class OptionScreen extends MusicBeatSubstate {
         }
         if (canSelect) {
             var oldCur = curSelected;
-            if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end)
+            if (controls.DOWN_P #if mobile || _sub_dpad.buttonDown.justPressed #end)
                 curSelected++;
-            if (controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end)
+            if (controls.UP_P #if mobile || _sub_dpad.buttonUp.justPressed #end)
                 curSelected--;
             if (curSelected != oldCur) {
                 while(curSelected < 0) curSelected += spawnedOptions.length;
@@ -93,7 +93,7 @@ class OptionScreen extends MusicBeatSubstate {
                 if (spawnedOptions[curSelected].onEnter != null) spawnedOptions[curSelected].onEnter(spawnedOptions[curSelected]);
                 if (spawnedOptions[oldCur].onLeft != null) spawnedOptions[oldCur].onLeft(spawnedOptions[oldCur]);
             }
-            if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end) {
+            if (controls.ACCEPT #if mobile || _sub_button.buttonA.justPressed #end) {
                 if (spawnedOptions[curSelected] != null) {
                     if (spawnedOptions[curSelected].onSelect != null) spawnedOptions[curSelected].onSelect(spawnedOptions[curSelected]);
                     onSelect(curSelected);
