@@ -14,25 +14,6 @@ class MusicBeatSubstate extends FlxSubState
 	public function new()
 	{
 		super();
-
-		#if mobile
-		var state:MusicBeatState = cast FlxG.state;
-
-		if (state._dpad != null)
-			state._dpad.visible = false;
-		#end
-	}
-
-	override public function close()
-	{
-		#if mobile
-		var state:MusicBeatState = cast FlxG.state;
-
-		if (state._dpad != null)
-			state._dpad.visible = true;
-		#end
-
-		super.close();
 	}
 
 	private var lastBeat:Float = 0;
