@@ -78,11 +78,13 @@ class MusicBeatState extends FlxUIState
 	}
 
 	public function removeButton() {
-		remove(_button);
+		if (_button != null)
+			remove(_button);
 	}
 
 	public function removeDPad() {
-		remove(_dpad);
+		if (_dpad != null)
+			remove(_dpad);
 	}
 	#end
 
