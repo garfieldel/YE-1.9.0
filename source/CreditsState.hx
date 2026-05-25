@@ -129,7 +129,12 @@ class CreditsState extends MusicBeatState {
 
         }
         changeSelection();
-        
+
+		#if mobile
+		addButton(A);
+		addDPad(FULL);
+		#end
+
         super.create();
     }
 
@@ -187,25 +192,25 @@ class CreditsState extends MusicBeatState {
     } 
     public override function update(elapsed) {
         super.update(elapsed);
-        if (controls.UP_P) {
+        if (controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end) {
             changeSelection(-1);
         }
-        if (controls.DOWN_P) {
+        if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end) {
             changeSelection(1);
         }
 
-        if (controls.ACCEPT) {
+        if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end) {
             FlxG.openURL(chars[curSelected].json.urls[curSocial].url);
         }
 
-        if (controls.LEFT_P) {
+        if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) {
             changeSocial(-1);
         }
-        if (controls.RIGHT_P) {
+        if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) {
             changeSocial(1);
         }
 
-        if (controls.BACK) {
+        if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
 			CoolUtil.playMenuSFX(2);
             FlxG.switchState(new MainMenuState());
         }
