@@ -489,7 +489,10 @@ class FreeplayState extends MusicBeatState
 			}
 			if (FlxControls.justPressed.F5) FlxG.resetState();
 		}
-		if (FlxControls.justPressed.TAB #if mobile || _button.buttonD.justPressed #end) openSubState(new SwitchModSubstate());
+		if (FlxControls.justPressed.TAB #if mobile || _button.buttonD.justPressed #end) {
+			openSubState(new SwitchModSubstate());
+		    removeButton();
+        }
 		shiftCooldown += elapsed;
 		for (i in iconArray) {
 			i.scale.x = i.scale.y = FlxMath.lerp(i.scale.x, 1, 0.50 * 60 * elapsed);
