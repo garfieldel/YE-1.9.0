@@ -71,9 +71,11 @@ class ModMenuState extends MusicBeatState {
         if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end) {
             changeSelection(1);
         }
+        #if !mobile
         if (FlxG.mouse.wheel != 0) {
             changeSelection(-FlxG.mouse.wheel);
         }
+        #end
         if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
             FlxG.switchState(new MainMenuState());
         }
