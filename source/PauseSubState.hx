@@ -134,6 +134,17 @@ class PauseSubState extends MusicBeatSubstate
 		#end
 	}
 
+	override function closeSubState()
+	{
+		super.closeSubState();
+		#if mobile
+		subRemoveButton();
+		subRemoveDPad();
+		subAddButton(A);
+		subAddDPad(UP_DOWN);
+		#end
+	}
+
 	override function update(elapsed:Float)
 	{
 		alpha = FlxMath.lerp(alpha, 0.6, 0.125 * elapsed * 60);
