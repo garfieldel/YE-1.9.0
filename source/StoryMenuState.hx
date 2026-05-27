@@ -460,12 +460,10 @@ class StoryMenuState extends MusicBeatState
 	override function closeSubState()
 	{
 		super.closeSubState();
-		#if mobile
 		removeButton();
 		removeDPad();
 		addDPad(FULL);
 		addButton(D_A);
-		#end
 	}
 
 	override function update(elapsed:Float)
