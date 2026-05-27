@@ -457,6 +457,17 @@ class StoryMenuState extends MusicBeatState
 		menuScript.executeFunc("createPost");
 	}
 
+	override function closeSubState()
+	{
+		super.closeSubState();
+		#if mobile
+		removeButton();
+		removeDPad();
+		addDPad(FULL);
+		addButton(D_A);
+		#end
+	}
+
 	override function update(elapsed:Float)
 	{
 		menuScript.executeFunc("preUpdate", [elapsed]);
