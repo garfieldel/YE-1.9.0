@@ -478,6 +478,8 @@ class StoryMenuState extends MusicBeatState
 		if (FlxControls.justPressed.TAB #if mobile || _button.buttonD.justPressed #end) {
 			persistentUpdate = false;
 			openSubState(new SwitchModSubstate());
+		    removeButton();
+		    removeDPad();
 		}
 		
 		if (activeWeekData.length <= 0) {
