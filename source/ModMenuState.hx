@@ -41,10 +41,6 @@ class ModMenuState extends MusicBeatState {
         titleBarAlphabet.screenCenter(X);
         titleBarAlphabet.y = 37.5 - (titleBarAlphabet.height / 2);
         add(titleBarAlphabet);
-
-        #if mobile
-        addDPad(UP_DOWN);
-        #end
     }
 
     public override function update(elapsed) {
@@ -65,13 +61,16 @@ class ModMenuState extends MusicBeatState {
                 c.card.active = true;
             }
         }
-        if (controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end) {
+        if (controls.UP_P) {
             changeSelection(-1);
         }
-        if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end) {
+        if (controls.DOWN_P) {
             changeSelection(1);
         }
-        if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
+        if (FlxG.mouse.wheel != 0) {
+            changeSelection(-FlxG.mouse.wheel);
+        }
+        if (controls.BACK) {
             FlxG.switchState(new MainMenuState());
         }
     }
