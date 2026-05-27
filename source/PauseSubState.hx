@@ -137,12 +137,10 @@ class PauseSubState extends MusicBeatSubstate
 	override function closeSubState()
 	{
 		super.closeSubState();
-		#if mobile
 		subRemoveButton();
 		subRemoveDPad();
 		subAddButton(A);
 		subAddDPad(UP_DOWN);
-		#end
 	}
 
 	override function update(elapsed:Float)
