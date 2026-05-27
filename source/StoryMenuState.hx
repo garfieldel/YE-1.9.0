@@ -460,10 +460,12 @@ class StoryMenuState extends MusicBeatState
 	override function closeSubState()
 	{
 		super.closeSubState();
+		#if mobile
 		removeButton();
 		removeDPad();
 		addDPad(FULL);
 		addButton(D_A);
+		#end
 	}
 
 	override function update(elapsed:Float)
@@ -478,8 +480,10 @@ class StoryMenuState extends MusicBeatState
 		if (FlxControls.justPressed.TAB #if mobile || _button.buttonD.justPressed #end) {
 			persistentUpdate = false;
 			openSubState(new SwitchModSubstate());
+		    #if mobile
 		    removeButton();
 		    removeDPad();
+		    #end
 		}
 		
 		if (activeWeekData.length <= 0) {
