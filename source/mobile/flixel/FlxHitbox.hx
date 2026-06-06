@@ -8,6 +8,7 @@ import flixel.util.FlxColor;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.group.FlxSpriteGroup;
+import EngineSettings.Settings;
 
 class FlxHitbox extends FlxSpriteGroup {
     public var poop:Bool = false;
