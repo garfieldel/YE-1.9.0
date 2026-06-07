@@ -4,7 +4,7 @@ import flixel.FlxG;
 import flixel.math.FlxMath;
 import EngineSettings.Settings;
 import flixel.FlxCamera;
-import mobile.flixel.FlxHitbox;
+import mobile.flixel.FlxVirtualPad;
 
 class OptiMenu extends OptionScreen {
     var stageQualities = ["Best", "High", "Low", "Medium"];
