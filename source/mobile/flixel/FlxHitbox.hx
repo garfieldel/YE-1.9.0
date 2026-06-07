@@ -18,7 +18,12 @@ class FlxHitbox extends FlxSpriteGroup {
 	public var array:Array<FlxButton> = [];
 
 	var hitboxColor:Map<Int, Array<Int>> = [
-		4 => [Settings.engineSettings.data.arrowColor0, Settings.engineSettings.data.arrowColor1, Settings.engineSettings.data.arrowColor2, Settings.engineSettings.data.arrowColor3],
+		4 => [
+			Settings.engineSettings.data.arrowColor0,
+			Settings.engineSettings.data.arrowColor1,
+			Settings.engineSettings.data.arrowColor2,
+			Settings.engineSettings.data.arrowColor3
+		],
  	];
 
 	public function new(?type:Int = 3) {
@@ -34,7 +39,6 @@ class FlxHitbox extends FlxSpriteGroup {
 	}
 
 	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
-
 		var hintTween:FlxTween = null;
 		var button:FlxButton = new FlxButton(x, y);
 		button.loadGraphic(createHintGraphic(width, height));
