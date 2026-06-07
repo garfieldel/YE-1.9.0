@@ -18,15 +18,7 @@ class FlxHitbox extends FlxSpriteGroup {
 	public var array:Array<FlxButton> = [];
 
 	var hitboxColor:Map<Int, Array<Int>> = [
-		1 => [0xffFFFFFF],
-		2 => [0xffE390E6, 0xffFF0000],
-		3 => [0xffE390E6, 0xffFFFFFF, 0xffFF0000],
 		4 => [Settings.engineSettings.data.arrowColor0, Settings.engineSettings.data.arrowColor1, Settings.engineSettings.data.arrowColor2, Settings.engineSettings.data.arrowColor3],
-		5 => [0xffE390E6, 0xff00EDFF, 0xffFFFFFF, 0xff00FF00, 0xffFF0000],
-		6 => [0xffE390E6, 0xff00FF00, 0xffFF0000, 0xffFFFF00, 0xff00EDFF, 0xff0000FF],
-		7 => [0xffE390E6, 0xff00FF00, 0xffFF0000, 0xffFFFFFF, 0xffFFFF00, 0xff00EDFF, 0xff0000FF],
-		8 => [0xffE390E6, 0xff00EDFF, 0xff00FF00, 0xffFF0000, 0xffFFFF00, 0xffBB00FF, 0xffFF0000, 0xff0000FF],
-		9 => [0xffE390E6, 0xff00EDFF, 0xff00FF00, 0xffFF0000, 0xffFFFFFF, 0xffFFFF00, 0xffBB00FF, 0xffFF0000, 0xff0000FF],
  	];
 
 	public function new(?type:Int = 3) {
