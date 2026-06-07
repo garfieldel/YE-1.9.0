@@ -50,7 +50,7 @@ class OptionScreen extends MusicBeatSubstate {
 
         #if mobile
         subAddButton(A);
-        subAddDPad(UP_DOWN);
+        subAddDPad(FULL);
         #end
     }
 
