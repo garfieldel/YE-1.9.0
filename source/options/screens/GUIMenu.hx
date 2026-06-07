@@ -28,8 +28,8 @@ class GUIMenu extends OptionScreen {
                 desc: "Changes the GUI Scale. The smaller the value is, the smaller the elements will appear on \nthe in game UI.",
                 value: getNoteScaleValue(),
                 onUpdate: function(v) {
-                    if (controls.LEFT_P) Settings.engineSettings.data.noteScale -= 0.05;
-                    if (controls.RIGHT_P) Settings.engineSettings.data.noteScale += 0.05;
+                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.noteScale -= 0.05;
+                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.noteScale += 0.05;
                     Settings.engineSettings.data.noteScale = FlxMath.bound(FlxMath.roundDecimal(Settings.engineSettings.data.noteScale, 2), 0.1, 2);
                     v.value = '< ${getNoteScaleValue()} >';
                 },
@@ -132,8 +132,8 @@ class GUIMenu extends OptionScreen {
                 desc: "Sets the score text size. 16 is base game size, 20 is Psych size. Defaults to 18.",
                 value: '${Settings.engineSettings.data.scoreTextSize}',
                 onUpdate: function(v) {
-                    if (controls.LEFT_P) Settings.engineSettings.data.scoreTextSize -= 1;
-                    if (controls.RIGHT_P) Settings.engineSettings.data.scoreTextSize += 1;
+                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.scoreTextSize -= 1;
+                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.scoreTextSize += 1;
                     v.value = '< ${Settings.engineSettings.data.scoreTextSize} >';
                 },
                 onLeft: function(v) {
