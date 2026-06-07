@@ -45,8 +45,8 @@ class NotesMenu extends OptionScreen {
                 onCreate: function(e) {e.value = '${Settings.engineSettings.data.noteMotionBlurMultiplier}';},
                 onLeft: function(e) {e.value = '${Settings.engineSettings.data.noteMotionBlurMultiplier}';},
                 onUpdate: function(e) {
-                    if (controls.LEFT_P) Settings.engineSettings.data.noteMotionBlurMultiplier -= 0.1;
-                    if (controls.RIGHT_P) Settings.engineSettings.data.noteMotionBlurMultiplier += 0.1;
+                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.noteMotionBlurMultiplier -= 0.1;
+                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.noteMotionBlurMultiplier += 0.1;
                     Settings.engineSettings.data.noteMotionBlurMultiplier = FlxMath.bound(FlxMath.roundDecimal(Settings.engineSettings.data.noteMotionBlurMultiplier, 1), 0.1, 10);
                     e.value = '< ${Settings.engineSettings.data.noteMotionBlurMultiplier} >';
                 }
@@ -72,8 +72,8 @@ class NotesMenu extends OptionScreen {
                 onCreate: function(e) {e.value = '${Settings.engineSettings.data.splashesAlpha * 100}%';},
                 onLeft: function(e) {e.value = '${Settings.engineSettings.data.splashesAlpha * 100}%';},
                 onUpdate: function(e) {
-                    if (controls.LEFT_P) Settings.engineSettings.data.splashesAlpha -= 0.1;
-                    if (controls.RIGHT_P) Settings.engineSettings.data.splashesAlpha += 0.1;
+                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.splashesAlpha -= 0.1;
+                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.splashesAlpha += 0.1;
                     Settings.engineSettings.data.splashesAlpha = FlxMath.bound(FlxMath.roundDecimal(Settings.engineSettings.data.splashesAlpha, 1), 0.1, 1);
                     e.value = '< ${Settings.engineSettings.data.splashesAlpha * 100}% >';
                 }
