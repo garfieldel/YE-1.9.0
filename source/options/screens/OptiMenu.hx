@@ -3,7 +3,6 @@ package options.screens;
 import flixel.FlxG;
 import flixel.math.FlxMath;
 import EngineSettings.Settings;
-import MusicBeatState._dpad;
 
 class OptiMenu extends OptionScreen {
     var stageQualities = ["Best", "High", "Low", "Medium"];
@@ -17,8 +16,8 @@ class OptiMenu extends OptionScreen {
                 value: '${cacheModes[Settings.engineSettings.data.optimizationType]}',
                 onLeft: function(e) {e.value = '${cacheModes[Settings.engineSettings.data.optimizationType]}';},
                 onUpdate: function(e) {
-                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.optimizationType--;
-                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.optimizationType++;
+                    if (controls.LEFT_P #if mobile || MusicBeatState._dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.optimizationType--;
+                    if (controls.RIGHT_P #if mobile || MusicBeatState._dpad.buttonRight.justPressed #end) Settings.engineSettings.data.optimizationType++;
                     Settings.engineSettings.data.optimizationType %= cacheModes.length;
                     if (Settings.engineSettings.data.optimizationType < 0) Settings.engineSettings.data.optimizationType = cacheModes.length + Settings.engineSettings.data.optimizationType;
                     e.value = '< ${cacheModes[Settings.engineSettings.data.optimizationType]} >';
@@ -30,8 +29,8 @@ class OptiMenu extends OptionScreen {
                 value: '${stageQualities[Settings.engineSettings.data.stageQuality]}',
                 onLeft: function(e) {e.value = '${stageQualities[Settings.engineSettings.data.stageQuality]}';},
                 onUpdate: function(e) {
-                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.stageQuality--;
-                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.stageQuality++;
+                    if (controls.LEFT_P #if mobile || MusicBeatState._dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.stageQuality--;
+                    if (controls.RIGHT_P #if mobile || MusicBeatState._dpad.buttonRight.justPressed #end) Settings.engineSettings.data.stageQuality++;
                     Settings.engineSettings.data.stageQuality %= stageQualities.length;
                     if (Settings.engineSettings.data.stageQuality < 0) Settings.engineSettings.data.stageQuality = stageQualities.length + Settings.engineSettings.data.stageQuality;
                     e.value = '< ${stageQualities[Settings.engineSettings.data.stageQuality]} >';
@@ -71,8 +70,8 @@ class OptiMenu extends OptionScreen {
                 value: '${Settings.engineSettings.data.fpsCap} FPS',
                 onLeft: function(e) {e.value = '${Settings.engineSettings.data.fpsCap} FPS';},
                 onUpdate: function(e) {
-                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.fpsCap -= 10;
-                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.fpsCap += 10;
+                    if (controls.LEFT_P #if mobile || MusicBeatState._dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.fpsCap -= 10;
+                    if (controls.RIGHT_P #if mobile || MusicBeatState._dpad.buttonRight.justPressed #end) Settings.engineSettings.data.fpsCap += 10;
                     Settings.engineSettings.data.fpsCap = Std.int(FlxMath.bound(Settings.engineSettings.data.fpsCap, 20, 300));
                     
 					FlxG.drawFramerate = Settings.engineSettings.data.fpsCap;
@@ -87,8 +86,8 @@ class OptiMenu extends OptionScreen {
                 value: '${Settings.engineSettings.data.maxRatingsAllowed == -1 ? "None" : Settings.engineSettings.data.maxRatingsAllowed}',
                 onLeft: function(e) {e.value = '${Settings.engineSettings.data.maxRatingsAllowed == -1 ? "None" : Settings.engineSettings.data.maxRatingsAllowed}';},
                 onUpdate: function(e) {
-                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.maxRatingsAllowed--;
-                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.maxRatingsAllowed++;
+                    if (controls.LEFT_P #if mobile || MusicBeatState._dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.maxRatingsAllowed--;
+                    if (controls.RIGHT_P #if mobile || MusicBeatState._dpad.buttonRight.justPressed #end) Settings.engineSettings.data.maxRatingsAllowed++;
                     Settings.engineSettings.data.maxRatingsAllowed = FlxMath.wrap(Settings.engineSettings.data.maxRatingsAllowed, -1, 25);
                     e.value = '< ${Settings.engineSettings.data.maxRatingsAllowed == -1 ? "None" : Settings.engineSettings.data.maxRatingsAllowed} >';
                 }
