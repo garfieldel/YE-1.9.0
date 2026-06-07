@@ -91,7 +91,7 @@ class GameplayMenu extends OptionScreen {
                 value: "",
                 onCreate: function(e) {e.value = ScoreText.accuracyTypesText[Settings.engineSettings.data.accuracyMode];},
                 onUpdate: function(e) {
-                    if (controls.ACCEPT || controls.RIGHT #if mobile || _button.buttonA.justPressed || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.accuracyMode++;
+                    if (controls.ACCEPT || controls.RIGHT_P #if mobile || _button.buttonA.justPressed || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.accuracyMode++;
                     if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.accuracyMode--;
                     while(Settings.engineSettings.data.accuracyMode < 0) Settings.engineSettings.data.accuracyMode += ScoreText.accuracyTypesText.length;
                     Settings.engineSettings.data.accuracyMode %= ScoreText.accuracyTypesText.length;
