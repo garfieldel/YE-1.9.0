@@ -3,27 +3,17 @@ package options.screens;
 import flixel.FlxG;
 import flixel.math.FlxMath;
 import EngineSettings.Settings;
+import flixel.FlxCamera;
+import mobile.flixel.FlxHitbox;
 
 class OptiMenu extends OptionScreen {
     var stageQualities = ["Best", "High", "Low", "Medium"];
     var cacheModes = ["All", "Mods", "This Mod"];
 
 	#if mobile
-	var _hitbox:FlxHitbox;
 	var _button:FlxVirtualPad;
 	var _dpad:FlxVirtualPad;
 	var _cam:FlxCamera;
-
-	public function addHitbox(?keyCount:Int = 3) {
-		_hitbox = new FlxHitbox(keyCount);
-
-		_cam = new FlxCamera();
-	    _cam.bgColor.alpha = 0;
-		FlxG.cameras.add(_cam, false);
-
-		_hitbox.cameras = [_cam];
- 		add(_hitbox);
-	}
 
 	public function addButton(?action:FlxActionMode) {
 		_button = new FlxVirtualPad(null, action);
