@@ -3,6 +3,7 @@ package options.screens;
 import flixel.FlxG;
 import flixel.math.FlxMath;
 import EngineSettings.Settings;
+import MusicBeatState._dpad;
 
 class OptiMenu extends OptionScreen {
     var stageQualities = ["Best", "High", "Low", "Medium"];
