@@ -432,6 +432,12 @@ class OptionsNotesColors_Old extends MusicBeatState
 			});
 			fDial.browse(FileDialogType.OPEN, null, null, "Select your note skin text file.");
 		});
+
+		#if mobile
+		addDPad(FULL);
+		addButton(A);
+		#end
+
 		add(openButton);
 		#end
 	}
@@ -458,7 +464,7 @@ class OptionsNotesColors_Old extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		if (FlxControls.justPressed.ENTER)
+		if (FlxControls.justPressed.ENTER #if mobile || _button.buttonA.justPressed #end)
 		{
 			Settings.engineSettings.data.arrowColor0 = cast(colors[0], Int);
 			Settings.engineSettings.data.arrowColor1 = cast(colors[1], Int);
@@ -486,7 +492,7 @@ class OptionsNotesColors_Old extends MusicBeatState
 			FlxG.sound.play(Paths.sound("scrollMenu"), 0.4);
 			refreshColorCodes();
 		}
-		if (FlxControls.justPressed.DOWN)
+		if (FlxControls.justPressed.DOWN #if mobile || _dpad.buttonDown.justPressed #end)
 		{
 			changeChannel(1);
 		}
@@ -494,28 +500,28 @@ class OptionsNotesColors_Old extends MusicBeatState
 		{
 			resetColors();
 		}
-		if (FlxControls.justPressed.UP)
+		if (FlxControls.justPressed.UP #if mobile || _dpad.buttonUp.justPressed #end)
 		{
 			changeChannel(-1);
 		}
 		if (FlxControls.pressed.SHIFT)
 		{
-			if (FlxControls.justPressed.LEFT)
+			if (FlxControls.justPressed.LEFT #if mobile || _dpad.buttonLeft.justPressed #end)
 			{
 				changeRGB(-1);
 			}
-			if (FlxControls.justPressed.RIGHT)
+			if (FlxControls.justPressed.RIGHT #if mobile || _dpad.buttonRight.justPressed #end)
 			{
 				changeRGB(1);
 			}
 		}
 		else
 		{
-			if (FlxControls.pressed.LEFT)
+			if (FlxControls.pressed.LEFT #if mobile || _dpad.buttonLeft.pressed #end)
 			{
 				changeRGB(-1);
 			}
-			if (FlxControls.pressed.RIGHT)
+			if (FlxControls.pressed.RIGHT #if mobile || _dpad.buttonRight.pressed #end)
 			{
 				changeRGB(1);
 			}
