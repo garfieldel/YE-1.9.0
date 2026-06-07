@@ -9,6 +9,10 @@ import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.FlxState;
 import flixel.group.FlxSpriteGroup;
+import flixel.FlxCamera;
+#if mobile
+import mobile.flixel.FlxVirtualPad;
+#end
 
 // substate cause faster lol get fucked
 class OptionScreen extends MusicBeatSubstate {
@@ -22,6 +26,45 @@ class OptionScreen extends MusicBeatSubstate {
 
     var spawnedOptions:Array<OptionSprite> = [];
     var optionsPanel:FlxSpriteGroup = new FlxSpriteGroup();
+
+    #if mobile
+	var _button:FlxVirtualPad;
+	var _dpad:FlxVirtualPad;
+	var _cam:FlxCamera;
+
+	public function addButton(?action:FlxActionMode) {
+		_button = new FlxVirtualPad(null, action);
+
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
+
+		_button.cameras = [_cam];
+		add(_button);
+	}
+
+	public function addDPad(?dpad:FlxDPadMode) {
+		_dpad = new FlxVirtualPad(dpad, null);
+
+		_cam = new FlxCamera();
+	    _cam.bgColor.alpha = 0;
+		FlxG.cameras.add(_cam, false);
+
+		_dpad.cameras = [_cam];
+		add(_dpad);
+	}
+
+	public function removeButton() {
+		if (_button != null)
+			remove(_button);
+	}
+
+	public function removeDPad() {
+		if (_dpad != null)
+			remove(_dpad);
+	}
+	#end
+
     public function new() {
         super();
     }
@@ -49,8 +92,8 @@ class OptionScreen extends MusicBeatSubstate {
         add(optionsPanel);
 
         #if mobile
-        subAddButton(A);
-        subAddDPad(FULL);
+        addButton(A);
+        addDPad(FULL);
         #end
     }
 
@@ -80,9 +123,9 @@ class OptionScreen extends MusicBeatSubstate {
         }
         if (canSelect) {
             var oldCur = curSelected;
-            if (controls.DOWN_P #if mobile || _sub_dpad.buttonDown.justPressed #end)
+            if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end)
                 curSelected++;
-            if (controls.UP_P #if mobile || _sub_dpad.buttonUp.justPressed #end)
+            if (controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end)
                 curSelected--;
             if (curSelected != oldCur) {
                 while(curSelected < 0) curSelected += spawnedOptions.length;
@@ -93,7 +136,7 @@ class OptionScreen extends MusicBeatSubstate {
                 if (spawnedOptions[curSelected].onEnter != null) spawnedOptions[curSelected].onEnter(spawnedOptions[curSelected]);
                 if (spawnedOptions[oldCur].onLeft != null) spawnedOptions[oldCur].onLeft(spawnedOptions[oldCur]);
             }
-            if (controls.ACCEPT #if mobile || _sub_button.buttonA.justPressed #end) {
+            if (controls.ACCEPT #if mobile || _button.buttonA.justPressed #end) {
                 if (spawnedOptions[curSelected] != null) {
                     if (spawnedOptions[curSelected].onSelect != null) spawnedOptions[curSelected].onSelect(spawnedOptions[curSelected]);
                     onSelect(curSelected);
