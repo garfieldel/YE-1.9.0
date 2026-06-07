@@ -10,43 +10,6 @@ class OptiMenu extends OptionScreen {
     var stageQualities = ["Best", "High", "Low", "Medium"];
     var cacheModes = ["All", "Mods", "This Mod"];
 
-	#if mobile
-	var _button:FlxVirtualPad;
-	var _dpad:FlxVirtualPad;
-	var _cam:FlxCamera;
-
-	public function addButton(?action:FlxActionMode) {
-		_button = new FlxVirtualPad(null, action);
-
-		_cam = new FlxCamera();
-	    _cam.bgColor.alpha = 0;
-		FlxG.cameras.add(_cam, false);
-
-		_button.cameras = [_cam];
-		add(_button);
-	}
-
-	public function addDPad(?dpad:FlxDPadMode) {
-		_dpad = new FlxVirtualPad(dpad, null);
-
-		_cam = new FlxCamera();
-	    _cam.bgColor.alpha = 0;
-		FlxG.cameras.add(_cam, false);
-
-		_dpad.cameras = [_cam];
-		add(_dpad);
-	}
-
-	public function removeButton() {
-		if (_button != null)
-			remove(_button);
-	}
-
-	public function removeDPad() {
-		if (_dpad != null)
-			remove(_dpad);
-	}
-	#end
     public override function create() {
         options = [
             {
