@@ -42,9 +42,7 @@ class ModMenuState extends MusicBeatState {
         titleBarAlphabet.y = 37.5 - (titleBarAlphabet.height / 2);
         add(titleBarAlphabet);
 
-        #if mobile
-        addDPad(UP_DOWN);
-        #end
+        
     }
 
     public override function update(elapsed) {
