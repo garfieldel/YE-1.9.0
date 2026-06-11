@@ -173,14 +173,16 @@ import flixel.FlxG;
 	 */
 	 @:keep public static var spawnSplashBehind:Bool = false;
 
-
+    // MOBILE
+	#if mobile
+	@:keep public static var hitboxOpacity:Float = 0.7;
+	#end
 	
 	// USELESS IN SCRIPTS
 	@:keep public static var antialiasing:Bool = true;
 	@:keep public static var autopause:Bool = true;
 	@:keep public static var autoplayInFreeplay:Bool = false;
 	@:keep public static var freeplayCooldown:Float = 2;
-	@:keep public static var hitboxOpacity:Float = 5;
 	@:keep public static var fpsCap:Int = 120;
 	@:keep public static var emptySkinCache:Bool = false;
 	@:keep public static var rainbowNotes:Bool = false; //Unused
