@@ -16,10 +16,10 @@ class MobileMenu extends OptionScreen {
                     if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.hitboxOpacity += 10;
                     Settings.engineSettings.data.hitboxOpacity = Std.int(FlxMath.bound(Settings.engineSettings.data.hitboxOpacity, 20, 300));
                     
-					FlxG.drawFramerate = Settings.engineSettings.data.fpsCap;
-					FlxG.updateFramerate = Settings.engineSettings.data.fpsCap;
+					FlxG.drawFramerate = Settings.engineSettings.data.hitboxOpacity;
+					FlxG.updateFramerate = Settings.engineSettings.data.hitboxOpacity;
                     
-                    e.value = '< ${Settings.engineSettings.data.fpsCap} FPS >';
+                    e.value = '< ${Settings.engineSettings.data.hitboxOpacity} FCK >';
                 }
             },
             {
