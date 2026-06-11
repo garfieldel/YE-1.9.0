@@ -53,7 +53,7 @@ class FlxHitbox extends FlxSpriteGroup {
 				if (hintTween != null)
 					hintTween.cancel();
 
-				hintTween = FlxTween.tween(button, {alpha: 0.7}, 0.7 / 100, {
+				hintTween = FlxTween.tween(button, {alpha: Settings.engineSettings.data.hitboxOpacity}, Settings.engineSettings.data.hitboxOpacity / 100, {
 					ease: FlxEase.circInOut,
 					onComplete: function(twn:FlxTween)
 					{
@@ -66,7 +66,7 @@ class FlxHitbox extends FlxSpriteGroup {
 				if (hintTween != null)
 					hintTween.cancel();
 
-				hintTween = FlxTween.tween(button, {alpha: 0}, 0.7 / 10, {
+				hintTween = FlxTween.tween(button, {alpha: 0}, Settings.engineSettings.data.hitboxOpacity / 10, {
 					ease: FlxEase.circInOut,
 					onComplete: function(twn:FlxTween)
 					{
@@ -79,7 +79,7 @@ class FlxHitbox extends FlxSpriteGroup {
 				if (hintTween != null)
 					hintTween.cancel();
 
-				hintTween = FlxTween.tween(button, {alpha: 0}, 0.7 / 10, {
+				hintTween = FlxTween.tween(button, {alpha: 0}, Settings.engineSettings.data.hitboxOpacity / 10, {
 					ease: FlxEase.circInOut,
 					onComplete: function(twn:FlxTween)
 					{
