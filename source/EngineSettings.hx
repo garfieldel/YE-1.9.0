@@ -180,7 +180,7 @@ import flixel.FlxG;
 	@:keep public static var autopause:Bool = true;
 	@:keep public static var autoplayInFreeplay:Bool = false;
 	@:keep public static var freeplayCooldown:Float = 2;
-	@:keep public static var hitboxOpacity:Int = 50;
+	@:keep public static var hitboxOpacity:Int = 5;
 	@:keep public static var fpsCap:Int = 120;
 	@:keep public static var emptySkinCache:Bool = false;
 	@:keep public static var rainbowNotes:Bool = false; //Unused
