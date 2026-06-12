@@ -176,6 +176,7 @@ import flixel.FlxG;
     // MOBILE
 	#if mobile
 	@:keep public static var hitboxOpacity:Float = 0.7;
+	@:keep public static var hitboxHidden:Bool = false;
 	#end
 	
 	// USELESS IN SCRIPTS
