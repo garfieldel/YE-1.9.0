@@ -11,8 +11,6 @@ import flixel.group.FlxSpriteGroup;
 import EngineSettings.Settings;
 
 class FlxHitbox extends FlxSpriteGroup {
-    public var poop:Bool = false;
-
 	public var hitbox:FlxSpriteGroup;
 
 	public var array:Array<FlxButton> = [];
@@ -46,7 +44,7 @@ class FlxHitbox extends FlxSpriteGroup {
 		button.updateHitbox();
 		button.alpha = 0;
 
-		if (!poop)
+		if (!Settings.engineSettings.data.hitboxHidden)
 		{
 			button.onDown.callback = function()
 			{
