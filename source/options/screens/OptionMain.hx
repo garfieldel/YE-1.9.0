@@ -76,6 +76,13 @@ class OptionMain extends OptionScreen {
                 value: "",
                 img: null,
                 onUpdate: null
+            },
+            {
+                name: "Fuck",
+                desc: "mobile...",
+                value: "",
+                img: null,
+                onUpdate: null
             }
         ];
         super.create();
@@ -108,6 +115,8 @@ class OptionMain extends OptionScreen {
                 doFlickerAnim(id, function() {FlxG.switchState(new MiscMenu());});
             case 7:
                 doFlickerAnim(id, function() {FlxG.switchState(new DevMenu());});
+            case 8:
+                doFlickerAnim(id, function() {FlxG.switchState(new MobileMenu());});
             default:
                 trace(id);
         }
