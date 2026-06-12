@@ -29,7 +29,7 @@ class MobileMenu extends OptionScreen {
                         FlxMath.bound(
                             FlxMath.roundDecimal(Settings.engineSettings.data.hitboxOpacity, 1),
                             0,
-                            1
+                            10
                         );
 
                     if (oldValue != Settings.engineSettings.data.hitboxOpacity)
