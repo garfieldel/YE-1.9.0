@@ -1,5 +1,6 @@
 package options.screens;
 
+import flixel.math.FlxMath;
 import flixel.FlxG;
 import EngineSettings.Settings;
 
