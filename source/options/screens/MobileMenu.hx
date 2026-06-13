@@ -18,14 +18,10 @@ class MobileMenu extends OptionScreen {
                 onUpdate: function(e) {
                     var oldValue = Settings.engineSettings.data.hitboxOpacity;
 
-                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end)
-                        Settings.engineSettings.data.hitboxOpacity -= 0.1;
-                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end)
-                        Settings.engineSettings.data.hitboxOpacity += 0.1;
-                    Settings.engineSettings.data.hitboxOpacity =
-                        FlxMath.bound(FlxMath.roundDecimal(Settings.engineSettings.data.hitboxOpacity, 1), 0, 10);
-                    if (oldValue != Settings.engineSettings.data.hitboxOpacity)
-                        e.value = '< ${Settings.engineSettings.data.hitboxOpacity} >';
+                    if (controls.LEFT_P #if mobile || _dpad.buttonLeft.justPressed #end) Settings.engineSettings.data.hitboxOpacity -= 0.1;
+                    if (controls.RIGHT_P #if mobile || _dpad.buttonRight.justPressed #end) Settings.engineSettings.data.hitboxOpacity += 0.1;
+                    Settings.engineSettings.data.hitboxOpacity = FlxMath.bound(FlxMath.roundDecimal(Settings.engineSettings.data.hitboxOpacity, 1), 0, 10);
+                    if (oldValue != Settings.engineSettings.data.hitboxOpacity) e.value = '< ${Settings.engineSettings.data.hitboxOpacity} >';
                 }
             },
             {
