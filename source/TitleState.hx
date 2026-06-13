@@ -12,8 +12,8 @@ import haxe.Http;
 import EngineSettings.Settings;
 #if desktop
 import Discord.DiscordClient;
-import sys.thread.Thread;
 #end
+import sys.thread.Thread;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
