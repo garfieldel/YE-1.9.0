@@ -63,16 +63,16 @@ class ModMenuState extends MusicBeatState {
                 c.card.active = true;
             }
         }
-        if (controls.UP_P #if mobile || _dpad.buttonUp.justPressed #end) {
+        if (controls.UP_P) {
             changeSelection(-1);
         }
-        if (controls.DOWN_P #if mobile || _dpad.buttonDown.justPressed #end) {
+        if (controls.DOWN_P) {
             changeSelection(1);
         }
         if (FlxG.mouse.wheel != 0) {
             changeSelection(-FlxG.mouse.wheel);
         }
-        if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end) {
+        if (controls.BACK) {
             FlxG.switchState(new MainMenuState());
         }
     }
