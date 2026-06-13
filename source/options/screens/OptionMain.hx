@@ -78,8 +78,8 @@ class OptionMain extends OptionScreen {
                 onUpdate: null
             },
             {
-                name: "Fuck",
-                desc: "mobile...",
+                name: "Mobile Settings",
+                desc: "Edit hitboxes and buttons",
                 value: "",
                 img: null,
                 onUpdate: null
