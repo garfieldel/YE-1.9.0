@@ -10,7 +10,8 @@ import flixel.tweens.FlxTween;
 import flixel.group.FlxSpriteGroup;
 import EngineSettings.Settings;
 
-class FlxHitbox extends FlxSpriteGroup {
+class FlxHitbox extends FlxSpriteGroup
+{
 	public var hitbox:FlxSpriteGroup;
 
 	public var array:Array<FlxButton> = [];
@@ -24,19 +25,22 @@ class FlxHitbox extends FlxSpriteGroup {
 		],
  	];
 
-	public function new(?type:Int = 3) {
+	public function new(?type:Int = 3)
+	{
 		super();
 		hitbox = new FlxSpriteGroup();
 		
 		var keyCount:Int = type + 1;
 		var hitboxWidth:Int = Math.floor(FlxG.width / keyCount);
-		for (i in 0 ... keyCount) {
+		for (i in 0 ... keyCount)
+		{
 			hitbox.add(add(array[i] = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i])));
       array[i].stringIDs = ['${type}_key_${keyCount}'];
 		}
 	}
 
-	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
+	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int)
+	{
 		var hintTween:FlxTween = null;
 		var button:FlxButton = new FlxButton(x, y);
 		button.loadGraphic(createHintGraphic(width, height));
@@ -92,9 +96,11 @@ class FlxHitbox extends FlxSpriteGroup {
 		return button;
 	}
 
-	override public function destroy():Void {
+	override public function destroy():Void
+	{
 		super.destroy();
-		for (hbox in array) {
+		for (hbox in array)
+		{
 			hbox = null;
 		}
 	}
